@@ -1,0 +1,95 @@
+brb{% extends "base.html" %}
+{% block title %}Risk Results - PRCDS{% endblock %}
+
+{% block content %}
+<div class="calculator-section">
+    <div class="container">
+
+        <div class="calculator-header">
+            <h1>Diabetes Risk Assessment Results</h1>
+            <p>Detailed risk analysis and personalized recommendations</p>
+        </div>
+
+        <div class="results-container" style="display:block; margin-top:40px;">
+
+            <!-- Risk Summary -->
+            <div class="risk-summary">
+                <div class="risk-score-container">
+                    <div class="risk-score">
+                        {{ result.risk_percentage if result else 0 }}%
+                    </div>
+                    <div class="risk-label">Diabetes Risk</div>
+                </div>
+            </div>
+
+            {% if result %}
+
+            <div class="results-grid">
+
+                <!-- Contributing Factors -->
+                <div class="result-card">
+                    <h3>Contributing Factors</h3>
+                    {% for factor in result.factors %}
+                        <div class="factor-item">
+                            <div>
+                                <strong>{{ factor.factor }}</strong>
+                                <div style="font-size:0.9rem; color:#64748b;">
+                                    +{{ factor.points }} points
+                                </div>
+                            </div>
+                            <span class="factor-impact impact-{{ factor.impact|lower|replace(' ', '-') }}">
+                                {{ factor.impact }} Impact
+                            </span>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <!-- Recommended Tests -->
+                <div class="result-card">
+                    <h3>Recommended Tests</h3>
+                    <ul>
+                        {% for test in result.recommendations.tests %}
+                            <li>{{ test }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <!-- Lifestyle Recommendations -->
+                <div class="result-card">
+                    <h3>Lifestyle Recommendations</h3>
+                    <ul>
+                        {% for item in result.recommendations.lifestyle %}
+                            <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <!-- Follow-up -->
+                <div class="result-card">
+                    <h3>Follow-up Care</h3>
+                    <ul>
+                        {% for item in result.recommendations.followup %}
+                            <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+            </div>
+
+            {% else %}
+                <p style="text-align:center; margin-top:20px;">
+                    No results available. Please calculate risk first.
+                </p>
+            {% endif %}
+
+            <div style="text-align:center; margin-top:40px;">
+                <a href="{{ url_for('calculator') }}" class="btn btn-primary">
+                    Calculate Again
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+{% endblock %}
