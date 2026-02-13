@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% block title %}Risk Calculator - PRCDS{% endblock %}
+
+{% block content %}
+<div class="calculator-section">
+    <div class="container">
+        <div class="calculator-header">
+            <h1>Diabetes Risk Calculator</h1>
+            <p>Enter patient information to assess diabetes risk and receive personalized recommendations.</p>
+        </div>
+
+        <div class="calculator-container">
+            <form id="risk-form" class="risk-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="age">Age (years)</label>
+                        <input type="number" id="age" name="age" min="18" max="120" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bmi">BMI (kg/m²)</label>
+                        <input type="number" id="bmi" name="bmi" min="15" max="50" step="0.1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="systolic_bp">Systolic Blood Pressure (mmHg)</label>
+                        <input type="number" id="systolic_bp" name="systolic_bp" min="80" max="200" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="diastolic_bp">Diastolic Blood Pressure (mmHg)</label>
+                        <input type="number" id="diastolic_bp" name="diastolic_bp" min="40" max="120" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="blood_sugar">Fasting Blood Sugar (mg/dL)</label>
+                        <input type="number" id="blood_sugar" name="blood_sugar" min="60" max="300" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lifestyle">Lifestyle</label>
+                        <select id="lifestyle" name="lifestyle" required>
+                            <option value="">Select lifestyle</option>
+                            <option value="active">Active (Regular exercise)</option>
+                            <option value="sedentary">Sedentary (Limited exercise)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Calculate Risk</button>
+                    <button type="reset" class="btn btn-secondary">Clear Form</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="results-container" class="results-container" style="display: none;">
+            <div class="view-toggle">
+                <button id="clinician-view-btn" class="view-btn active">Clinician View</button>
+                <button id="patient-view-btn" class="view-btn">Patient View</button>
+            </div>
+
+            <div id="clinician-view" class="result-view">
+                <div class="risk-summary">
+                    <div class="risk-score-container">
+                        <div class="risk-score">
+                            <span id="risk-percentage">0</span>%
+                        </div>
+                        <div class="risk-label">Diabetes Risk</div>
+                    </div>
+                </div>
+
+                <div class="results-grid">
+                    <div class="result-card">
+                        <h3>Contributing Factors</h3>
+                        <div id="factors-list"></div>
+                    </div>
+
+                    <div class="result-card">
+                        <h3>Recommended Tests</h3>
+                        <ul id="tests-list"></ul>
+                    </div>
+
+                    <div class="result-card">
+                        <h3>Lifestyle Recommendations</h3>
+                        <ul id="lifestyle-list"></ul>
+                    </div>
+
+                    <div class="result-card">
+                        <h3>Follow-up Care</h3>
+                        <ul id="followup-list"></ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="patient-view" class="result-view" style="display: none;">
+                <div class="patient-summary">
+                    <h2>Your Health Assessment Results</h2>
+                    <div class="risk-gauge-container">
+                        <canvas id="risk-gauge" width="300" height="200"></canvas>
+                    </div>
+                    <div id="patient-explanation" class="patient-explanation"></div>
+                </div>
+
+                <div class="patient-recommendations">
+                    <h3>What You Can Do</h3>
+                    <div id="patient-actions"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="loading" class="loading-overlay" style="display: none;">
+    <div class="loading-content">
+        <div class="spinner"></div>
+        <p>Calculating risk assessment...</p>
+    </div>
+</div>
+{% endblock %}
