@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+{% block title %}About - PRCDS{% endblock %}
+
+{% block content %}
+<div class="about-section">
+    <div class="container">
+        <div class="about-header">
+            <h1>About the Preventive Risk & Clinical Decision Support System</h1>
+            <p class="lead">
+                A demonstration prototype showcasing the integration of machine learning and 
+                generative AI in clinical decision support systems.
+            </p>
+        </div>
+
+        <div class="about-content">
+            <div class="about-grid">
+                <div class="about-card">
+                    <h2>Purpose & Vision</h2>
+                    <p>
+                        This prototype demonstrates how advanced AI technologies can be integrated 
+                        into healthcare workflows to improve patient outcomes through:
+                    </p>
+                    <ul>
+                        <li>Early risk identification and intervention</li>
+                        <li>Personalized treatment recommendations</li>
+                        <li>Evidence-based clinical decision support</li>
+                        <li>Improved patient-provider communication</li>
+                    </ul>
+                </div>
+
+                <div class="about-card">
+                    <h2>Current Implementation</h2>
+                    <p>
+                        The current prototype focuses on diabetes risk assessment using 
+                        established clinical parameters:
+                    </p>
+                    <ul>
+                        <li><strong>Age:</strong> Known risk factor for diabetes</li>
+                        <li><strong>BMI:</strong> Body mass index correlation with metabolic health</li>
+                        <li><strong>Blood Pressure:</strong> Hypertension as diabetes risk factor</li>
+                        <li><strong>Blood Sugar:</strong> Fasting glucose levels</li>
+                        <li><strong>Lifestyle:</strong> Physical activity impact on risk</li>
+                    </ul>
+                </div>
+
+                <div class="about-card">
+                    <h2>AI Integration Opportunities</h2>
+                    <p>
+                        Future enhancements could leverage machine learning and generative AI 
+                        (such as Claude) to provide:
+                    </p>
+
+                    <h3>🧠 Machine Learning Capabilities</h3>
+                    <ul>
+                        <li>Advanced risk prediction models using larger datasets</li>
+                        <li>Pattern recognition in complex patient histories</li>
+                        <li>Continuous learning from new clinical evidence</li>
+                        <li>Population health analytics and trends</li>
+                    </ul>
+
+                    <h3>🤖 Generative AI Integration (Claude)</h3>
+                    <ul>
+                        <li><strong>Risk Explanation:</strong> Natural language explanations of complex risk factors</li>
+                        <li><strong>Counterfactual Reasoning:</strong> "What if" scenario analysis</li>
+                        <li><strong>Dual Communication:</strong> Automatically generate both technical and patient-friendly explanations</li>
+                        <li><strong>Personalized Recommendations:</strong> Tailored advice based on individual patient context</li>
+                    </ul>
+                </div>
+
+                <div class="about-card">
+                    <h2>Counterfactual Analysis Example</h2>
+                    <div class="example-box">
+                        <h4>Scenario:</h4>
+                        <p>Patient with 45% diabetes risk</p>
+                        
+                        <h4>AI-Generated Insights:</h4>
+                        <div class="insight-item">
+                            <strong>📉 If BMI reduced from 32 to 26:</strong>
+                            <span class="risk-change">Risk decreases to 28% (-17%)</span>
+                        </div>
+                        <div class="insight-item">
+                            <strong>🏃 If lifestyle changes to active:</strong>
+                            <span class="risk-change">Risk decreases to 35% (-10%)</span>
+                        </div>
+                        <div class="insight-item">
+                            <strong>💊 If blood pressure controlled:</strong>
+                            <span class="risk-change">Risk decreases to 38% (-7%)</span>
+                        </div>
+                        <div class="insight-item">
+                            <strong>🎯 Combined interventions:</strong>
+                            <span class="risk-change">Risk decreases to 18% (-27%)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-card">
+                    <h2>Technical Architecture</h2>
+                    <p>The prototype is built using modern web technologies:</p>
+                    
+                    <div class="tech-stack">
+                        <div class="tech-category">
+                            <h4>Backend</h4>
+                            <ul>
+                                <li>Python Flask framework</li>
+                                <li>RESTful API design</li>
+                                <li>JSON data exchange</li>
+                                <li>Modular risk calculation engine</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="tech-category">
+                            <h4>Frontend</h4>
+                            <ul>
+                                <li>Responsive HTML5/CSS3</li>
+                                <li>Vanilla JavaScript</li>
+                                <li>Chart.js for visualizations</li>
+                                <li>Progressive enhancement</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-card">
+                    <h2>Future Enhancements</h2>
+                    <p>Potential areas for expansion include:</p>
+                    <ul>
+                        <li>Integration with electronic health records (EHR)</li>
+                        <li>Real-time model updates with new research</li>
+                        <li>Multi-condition risk assessment</li>
+                        <li>Clinical workflow integration</li>
+                        <li>Patient portal connectivity</li>
+                        <li>Regulatory compliance (HIPAA, FDA)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-footer">
+            <div class="disclaimer">
+                <h3>⚠️ Important Disclaimer</h3>
+                <p>
+                    This is a demonstration prototype for educational and development purposes only. 
+                    It should not be used for actual clinical decisions or patient care. 
+                    Real-world implementations require extensive validation, regulatory approval, 
+                    and integration with established clinical workflows.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
