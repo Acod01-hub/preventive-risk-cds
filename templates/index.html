@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero-section">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Preventive Risk & Clinical Decision Support</h1>
+            <p class="hero-subtitle">
+                Advanced AI-powered risk assessment and clinical decision support system 
+                designed to improve patient outcomes through early intervention and personalized care.
+            </p>
+            <div class="hero-buttons">
+                <a href="{{ url_for('calculator') }}" class="btn btn-primary">Start Risk Assessment</a>
+                <a href="{{ url_for('about') }}" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="features-section">
+    <div class="container">
+        <h2>Key Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Risk Assessment</h3>
+                <p>Comprehensive risk evaluation using multiple clinical parameters and lifestyle factors.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🧠</div>
+                <h3>AI-Powered Insights</h3>
+                <p>Machine learning algorithms provide accurate risk predictions and personalized recommendations.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👥</div>
+                <h3>Dual Communication</h3>
+                <p>Tailored explanations for both healthcare providers and patients with appropriate complexity.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Visual Analytics</h3>
+                <p>Interactive charts and visualizations make complex medical data easily understandable.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Real-time Results</h3>
+                <p>Instant risk calculations and recommendations to support clinical decision-making.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <h3>Scenario Analysis</h3>
+                <p>Explore "what-if" scenarios to understand the impact of lifestyle and treatment changes.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Ready to Get Started?</h2>
+            <p>Try our risk calculator and see how preventive care can make a difference.</p>
+            <a href="{{ url_for('calculator') }}" class="btn btn-primary">Calculate Risk Now</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
